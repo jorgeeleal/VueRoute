@@ -20,7 +20,7 @@
     <div v-if="data">
         <ul class="list-group">
             <li v-for="pokemon in data.results" class="list-group-item">
-                <router-link  :to ="`/pokemons/${pokemon.name}`">
+                <router-link class="btn fw-light" :to ="`/pokemons/${pokemon.name}`">
                     {{ pokemon.name }}
                 </router-link>
             </li>

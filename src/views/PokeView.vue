@@ -23,16 +23,19 @@
     <div v-if="error" class="alert alert-danger" >
         {{ error }}
     </div> 
-    <div v-if="data">
-        <h1>Info</h1>
+    <div v-if="data" class="text-center">
+        <h1>...</h1>
         <div class="card">         <!-- Optional chaining :  -- Si no ha cargado la promesa-->
-            <img :src="data.sprites?.front_default" class="card-img-top" alt="..." style="width: 8rem;">
+            <img :src="data.sprites?.front_default"  alt="..."   class="card-img-top" style="width: 18rem;" >
             <div class="card-body">
                 <div class="card-title fs-4 fw-semibold" >
                     {{ $route.params.name }}
                 </div>    
             </div>
         </div>
+        <button class="btn btn-outline-primary mt-3 " @click="back">atrás</button>
     </div>
-    <button class="btn btn-outline-primary mt-3" @click="back">atrás</button>
+    
 </template>
+
+<!-- class="card-img-top" style="width: 8rem;"-->
