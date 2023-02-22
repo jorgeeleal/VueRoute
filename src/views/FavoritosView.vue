@@ -13,9 +13,10 @@ const {favoritos} = storeToRefs(useFavoritos);
 <template>
     <h1>Favoritos</h1>
     <p v-if="favoritos.length === 0">Sin favoritos</p>
-    <ul v-else class="list-group">
-        <li v-for="pokemon in favoritos" class="list-group-item">
+    <ul v-else class="list-group mb-5">
+        <li v-for="pokemon in favoritos" class="list-group-item mb-1">
             <div>
+                <img :src="pokemon.sprites?.front_default"  alt="..."  style="width: 6rem;" >
                 {{ pokemon.name }}
             </div>
             <div>

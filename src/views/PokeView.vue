@@ -19,6 +19,7 @@
         router.push('/pokemons');
     }
     getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`);
+    console.log(data);
 </script>
 
 <template>
@@ -31,21 +32,27 @@
     </div> 
     <div v-if="data" class="text-center">
         <h1>...</h1>
-        <div class="card">         <!-- Optional chaining :  -- Si no ha cargado la promesa-->
-            <img :src="data.sprites?.front_default"  alt="..."   class="card-img-top" style="width: 18rem;" >
-            <div class="card-body">
-                <div class="card-title fs-4 fw-semibold" >
-                    {{ $route.params.name }}
-                </div>    
-            </div>
-            <button class="btn btn-warning mx-5" 
-            @click="addFavorito(data)"
-            :disabled="isAdded(data.name)"
-            >añadir a favoritos</button>
-        </div>
-        <button class="btn btn-outline-primary mt-3 " @click="back">atrás</button>
+                                <!-- Optional chaining :  -- Si no ha cargado la promesa-->
+        <img :src="data.sprites?.front_default"  alt="..."  style="width: 10rem;" >
+        <p class="fs-4 fw-semibold" >
+            {{ $route.params.name }}
+        </p>
+        <p class="fs-6 fw-lighter" >
+            Experiencia: {{ data.base_experience }}
+        </p>
+        <p class="fs-6 fw-normal mb-2" >
+            Habilidades:
+        </p>
+        <p v-for="hab in data.abilities" class="fs-6 fw-lighter mb-1">* {{ hab.ability.name }}</p>
+
+        
+
+        <button class="btn btn-warning mx-5 mt-4" 
+        @click="addFavorito(data)"
+        :disabled="isAdded(data.name)"
+        >añadir a favoritos</button>    
     </div>
-    
+    <button class="btn btn-outline-primary mt-3 " @click="back">atrás</button>
 </template>
 
 <!-- class="card-img-top" style="width: 8rem;"-->
