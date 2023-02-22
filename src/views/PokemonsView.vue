@@ -2,7 +2,6 @@
     import axios from 'axios';
     import {ref} from 'vue';
     import {RouterLink} from 'vue-router';
-    import PokemonItem from '../components/PokemonItem.vue';
     //--------------------------------------------------------------------------
 
     const pokemons = ref([]);
@@ -20,11 +19,16 @@
 </script>
 
 <template>
-    <h1>Pokemons</h1>
-    <div class="container" v-for="pokemon in pokemons" >
-        <router-link :to ="`/pokemons/${pokemon.name}`">
-            <PokemonItem :name="pokemon.name" />
-        </router-link>
-    </div>
+    <h1 class="mb-4">Pokemons</h1>
+
+    <ul class="list-group">
+        <li v-for="pokemon in pokemons" class="list-group-item">
+            <router-link  :to ="`/pokemons/${pokemon.name}`">
+                {{ pokemon.name }}
+            </router-link>
+        </li>
+        
+    </ul>
+
     
 </template>

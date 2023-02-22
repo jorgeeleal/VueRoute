@@ -20,7 +20,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container mt-5">
     <RouterView />
   </div>
 </template>
