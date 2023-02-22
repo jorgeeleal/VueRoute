@@ -19,7 +19,10 @@ const {favoritos} = storeToRefs(useFavoritos);
                 {{ pokemon.name }}
             </div>
             <div>
-                <button class="btn btn-sm btn-danger" @click="remove(pokemon.id)">Eliminar</button>
+                <button class="btn btn-sm btn-danger me-2" @click="remove(pokemon.id)">Eliminar</button>
+                <router-link class="btn btn-sm btn-warning fw-light" :to ="`/pokemons/${pokemon.name}`">
+                    ver información
+                </router-link>
             </div>
         </li>
     </ul>
