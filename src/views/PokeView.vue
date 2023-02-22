@@ -7,7 +7,7 @@
     const route = useRoute();
     const router = useRouter();
 
-    const {data, getData, loading} = useData();
+    const {data, getData, loading, error} = useData();
 
     const back = () => {
         router.push('/pokemons');
@@ -19,6 +19,10 @@
     <div v-if="loading" class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
+    <br>
+    <div v-if="error" class="alert alert-danger" >
+        {{ error }}
+    </div> 
     <div v-if="data">
         <h1>Info</h1>
         <div class="card">         <!-- Optional chaining :  -- Si no ha cargado la promesa-->
@@ -30,8 +34,5 @@
             </div>
         </div>
     </div>
-    <div v-else>
-        <h1>No existe</h1>
-    </div>
-    <button class="btn btn-outline-primary" @click="back">atrás</button>
+    <button class="btn btn-outline-primary mt-3" @click="back">atrás</button>
 </template>
