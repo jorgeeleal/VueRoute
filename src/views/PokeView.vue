@@ -2,10 +2,16 @@
 
     import { useRoute, useRouter } from 'vue-router';
     import { useData } from '@/composables/useData';
+    import { useFavoritosStore } from '@/store/useFavoritosStore';
     //-------------------------------------------------------------------------- 
 
     const route = useRoute();
     const router = useRouter();
+
+    const useFavoritos = useFavoritosStore();
+
+    const {addFavorito, isAdded} = useFavoritos;
+
 
     const {data, getData, loading, error} = useData();
 
@@ -32,6 +38,10 @@
                     {{ $route.params.name }}
                 </div>    
             </div>
+            <button class="btn btn-warning mx-5" 
+            @click="addFavorito(data)"
+            :disabled="isAdded(data.name)"
+            >añadir a favoritos</button>
         </div>
         <button class="btn btn-outline-primary mt-3 " @click="back">atrás</button>
     </div>
