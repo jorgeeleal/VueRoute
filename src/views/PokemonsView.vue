@@ -20,7 +20,7 @@
 </script>
 
 <template>
-    <h1 class="pokemons">Pokemons.</h1>
+    <h1>Pokemons</h1>
     <div class="container" v-for="pokemon in pokemons" >
         <router-link :to ="`/pokemons/${pokemon.name}`">
             <PokemonItem :name="pokemon.name" />
@@ -28,13 +28,3 @@
     </div>
     
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .pokemons {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
